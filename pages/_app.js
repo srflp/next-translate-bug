@@ -1,7 +1,9 @@
-import '../styles/globals.css'
+function App({ Component, pageProps }) {
+  const layout = Component.layout || (page => page);
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return (
+    <>{layout(<Component {...pageProps} />)}</>
+  );
 }
 
-export default MyApp
+export default App;
